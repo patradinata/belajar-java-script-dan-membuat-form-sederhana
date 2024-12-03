@@ -1,0 +1,52 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicsand", sans-serif;
+  line-height: 2px;
+  background-color: #eaeaea;
+}
+
+header.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+
+header.container .form-container {
+  width: 500px;
+  height: 400px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  background-color: indigo;
+  border-radius: 20px;
+}
+
+header.container .form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem 2rem;
+  width: 100%;
+}
+
+header.container .form-container label {
+  padding-left: 20px;
+  color: white;
+  font-size: 1rem;
+}
+
+header.container .form-container input {
+  margin: 0 10px;
+  padding: 12px;
+  min-height: 3rem;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+}

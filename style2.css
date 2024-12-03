@@ -1,0 +1,104 @@
+/* From Uiverse.io by vk-uiux */
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: absolute;
+  width: 30px; /* Perkecil ukuran */
+  cursor: pointer;
+  height: calc(3px * 3 + 8px * 2); /* Sesuaikan dengan ukuran yang lebih kecil */
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px; /* Sesuaikan tinggi bar */
+  border-radius: calc(3px / 2);
+  background: #7b52b9;
+  color: inherit;
+  opacity: 1;
+  transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
+}
+
+.bar--top {
+  bottom: calc(50% + 8px + 3px / 2);
+  transition-property: bottom, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
+}
+
+.bar--middle {
+  top: calc(50% - 3px / 2);
+  transition-property: opacity;
+  transition-delay: calc(0s + 0.35s);
+}
+
+.bar--bottom {
+  top: calc(50% + 8px + 3px / 2);
+  transition-property: top, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
+}
+
+#checkbox:checked + .toggle .bar--top {
+  bottom: calc(50% - 3px / 2);
+  transform: rotate(135deg);
+  transition-delay: 0s, calc(0s + 0.35s);
+}
+
+#checkbox:checked + .toggle .bar--middle {
+  opacity: 0;
+  transition-duration: 0s;
+  transition-delay: calc(0s + 0.35s);
+}
+
+#checkbox:checked + .toggle .bar--bottom {
+  top: calc(50% - 3px / 2);
+  transform: rotate(225deg);
+  transition-delay: 0s, calc(0s + 0.35s);
+}
+
+nav {
+  position: relative; /* Pastikan nav memiliki posisi relative */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Menampilkan item dalam flexbox */
+  flex-direction: column;
+  background-color: lightcyan; /* Ganti sesuai kebutuhan */
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  z-index: 1;
+  height: 100vh; /* Sesuaikan dengan konten */
+  opacity: 0; /* Mulai dengan transparan */
+  transform: translateY(-20px); /* Posisi awal untuk animasi */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi */
+}
+
+/* Kelas aktif untuk animasi */
+#menu.active {
+  opacity: 1; /* Muncul */
+  transform: translateY(0); /* Kembali ke posisi normal */
+}
+
+nav ul li {
+  text-align: center;
+  padding: 20px 0;
+  background-color: white; /* Background putih untuk item */
+  margin: 10px 0; /* Jarak antar item */
+  border-radius: 5px; /* Sudut membulat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+/* Tampilkan menu ketika checkbox aktif */
+#checkbox:checked ~ nav ul {
+  display: flex;
+}
